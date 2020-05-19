@@ -4,26 +4,26 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 @NgModule({
+  // lista de componentes
   declarations: [
-    MyApp,
-    HomePage,
-    ListPage
+     MyApp
+    ,HomePage
   ],
+  // lista de módulos
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
+  // Quando for uma página deve ser declarado aqui.
   entryComponents: [
-    MyApp,
-    HomePage,
-    ListPage
+     MyApp
+    ,HomePage
   ],
   providers: [
     StatusBar,
