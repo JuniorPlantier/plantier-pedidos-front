@@ -1,4 +1,5 @@
 // Configurações da API
 export const API_CONFIG = {
-    baseUrl: "http://localhost:8080"
+     baseUrl: "http://localhost:8080"
+    ,bucketBaseUrl: "https://plantier-pedidos2.s3-sa-east-1.amazonaws.com"
 }
