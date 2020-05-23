@@ -1,6 +1,8 @@
+import { CategoriaService } from './../services/domain/categoria.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
 
@@ -14,8 +16,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   // lista de módulos
   imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp),
+     BrowserModule
+    ,HttpClientModule
+    ,IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   // Quando for uma página deve ser declarado aqui.
@@ -23,9 +26,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
      MyApp
   ],
   providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+     StatusBar
+    ,SplashScreen
+    ,{provide: ErrorHandler, useClass: IonicErrorHandler}
+    ,CategoriaService
   ]
 })
 export class AppModule {}
