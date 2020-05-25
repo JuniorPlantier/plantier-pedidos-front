@@ -1,3 +1,4 @@
+import { CredenciaisDTO } from './../../models/credenciais.dto';
 import { Component } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
 import { MenuController } from 'ionic-angular/components/app/menu-controller';
@@ -8,6 +9,12 @@ import { MenuController } from 'ionic-angular/components/app/menu-controller';
   ,templateUrl: 'home.html'
 })
 export class HomePage {
+
+  // binding de dados 
+  creds : CredenciaisDTO = {
+     email: ""
+    ,senha: ""
+  }
 
   constructor(public navCtrl: NavController, public menu: MenuController) {
 
@@ -25,7 +32,9 @@ export class HomePage {
 
   public login() {
     //this.navCtrl.push('CategoriasPage'); // empilha uma página em cima da outra.
-    this.navCtrl.setRoot('CategoriasPage'); // empilha uma página em cima da outra.
+    
+    console.log(this.creds);
+    this.navCtrl.setRoot('CategoriasPage'); 
   }
 
 }
