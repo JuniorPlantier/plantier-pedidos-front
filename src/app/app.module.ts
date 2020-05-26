@@ -10,6 +10,7 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ErrorInterceptorProvider } from '../interceptors/error-interceptor';
+import { StorageService } from '../services/storage.service';
 
 @NgModule({
   // lista de componentes
@@ -34,6 +35,7 @@ import { ErrorInterceptorProvider } from '../interceptors/error-interceptor';
     ,CategoriaService
     ,ErrorInterceptorProvider
     ,AuthService // agora eu tenho uma instância desse serviço disponível na app como um todo.
+    ,StorageService
   ]
 })
 export class AppModule {}
