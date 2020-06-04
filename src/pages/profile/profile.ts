@@ -27,13 +27,20 @@ export class ProfilePage {
 
   ionViewDidLoad() {
     let localUser = this.storage.getLocalUser();
+    // se deu problema no token
     if (localUser && localUser.email) {
       this.clienteService.findByEmail(localUser.email)
         .subscribe(response => {
           this.cliente = response;
           this.getImageIfExists();
         },
-        error => {console.log("Deu ruim na hora de buscar por email.")})
+        error => {
+          if (error.status == 403) {
+            this.navCtrl.setRoot('HomePage');
+          }
+        });
+    } else {
+      this.navCtrl.setRoot('HomePage');
     }
   }
 
