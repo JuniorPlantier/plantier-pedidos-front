@@ -11,6 +11,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ErrorInterceptorProvider } from '../interceptors/error-interceptor';
 import { StorageService } from '../services/storage.service';
+import { ClienteService } from '../services/cliente.service';
+import { AuthInterceptorProvider } from '../interceptors/auth-interceptor';
 
 @NgModule({
   // lista de componentes
@@ -33,9 +35,12 @@ import { StorageService } from '../services/storage.service';
     ,SplashScreen
     ,{provide: ErrorHandler, useClass: IonicErrorHandler}
     ,CategoriaService
+    // a ordem de interceptação é importante
+    ,AuthInterceptorProvider
     ,ErrorInterceptorProvider
     ,AuthService // agora eu tenho uma instância desse serviço disponível na app como um todo.
     ,StorageService
+    ,ClienteService
   ]
 })
 export class AppModule {}

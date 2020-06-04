@@ -17,7 +17,7 @@ export class AuthService {
     }
 
     authenticate(creds: CredenciaisDTO) {
-        return this.http.post(`${this.basePath}/login`, 
+        return this.http.post(`${this.basePath}`, 
                         creds,
                         // para ter acesso ao header
                         {
