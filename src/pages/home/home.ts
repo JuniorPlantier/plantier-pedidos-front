@@ -33,6 +33,16 @@ export class HomePage {
     this.menu.swipeEnable(true);
   } 
 
+  // 
+  ionViewDidEnter() {
+    this.auth.refreshToken()
+      .subscribe(response => {
+        this.auth.successfullLogin(response.headers.get('Authorization'));
+        this.navCtrl.setRoot('CategoriasPage');
+      },
+      error => {});  
+  }
+
   public login() {
     //this.navCtrl.push('CategoriasPage'); // empilha uma página em cima da outra.
     

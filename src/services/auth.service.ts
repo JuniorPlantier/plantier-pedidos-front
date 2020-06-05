@@ -4,6 +4,7 @@ import { CredenciaisDTO } from "../models/credenciais.dto";
 import { LocalUser } from '../models/local_user';
 import { StorageService } from './storage.service';
 import { JwtHelper } from 'angular2-jwt';
+import { API_CONFIG } from '../config/api.config';
 
 @Injectable()
 export class AuthService {
@@ -25,6 +26,17 @@ export class AuthService {
                             ,responseType: 'text'
                         }
                );
+    }
+
+    refreshToken() {
+        // o token é incluído automaticamente pelo interceptor
+        return this.http.post(
+            `${API_CONFIG.baseUrl}/auth/refresh_token`, 
+            {},
+            {
+                observe: 'response',
+                responseType: 'text' // para o framework não dar erro de parse
+            });
     }
 
     // o que deve ser feito, quando o login é realizado com sucesso.

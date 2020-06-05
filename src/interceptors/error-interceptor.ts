@@ -45,8 +45,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             title: 'Erro 401: falha de autenticação',
             message: 'Email ou senha incorretos',
             enableBackdropDismiss: false,
-            buttons: [
-                {
+            buttons: [{
                     text: 'Ok'
                 }
             ]
