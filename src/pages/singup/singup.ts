@@ -27,6 +27,7 @@ export class SignupPage {
 
     this.formGroup = this.formBuilder.group({
       // Fazendo as validações aqui, nós evitamos o envio de requisições desnecessárias.
+      // .errors
       nome: ['Joaquim', [Validators.required, Validators.minLength(5), Validators.maxLength(120)]],
       email: ['joaquim@gmail.com', [Validators.required, Validators.email]],
       tipo : ['1', [Validators.required]],
